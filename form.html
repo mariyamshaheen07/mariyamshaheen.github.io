@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+</head>
+
+<body>
+
+<h2>Registration Form</h2>
+
+<form action="submit.php" method="POST">
+
+    <label>Full Name:</label><br>
+    <input type="text" name="fullname" required><br><br>
+
+    <label>Father Name:</label><br>
+    <input type="text" name="fathername" required><br><br>
+
+    <label>CNIC:</label><br>
+    <input type="text" name="cnic" placeholder="12345-6789012-3" required><br><br>
+
+    <label>Phone Number:</label><br>
+    <input type="text" name="phone" placeholder="03XXXXXXXXX" required><br><br>
+
+    <label>Email:</label><br>
+    <input type="email" name="email" required><br><br>
+
+    <label>Date of Birth:</label><br>
+    <input type="date" name="dob" required><br><br>
+
+    <label>Gender:</label><br>
+    <input type="radio" name="gender" value="Male"> Male
+    <input type="radio" name="gender" value="Female"> Female
+    <input type="radio" name="gender" value="Other"> Other
+    <br><br>
+
+    <label>Department:</label><br>
+    <select name="department">
+        <option>Computer Science</option>
+        <option>Software Engineering</option>
+        <option>IT</option>
+        <option>Business Administration</option>
+        <option>Biotechnology</option>
+        <option>Education</option>
+        <option>Other</option>
+    </select>
+    <br><br>
+
+    <label>Current Education Level:</label><br>
+    <select name="education">
+        <option>Matric</option>
+        <option>Intermediate</option>
+        <option>Undergraduate</option>
+        <option>Graduate</option>
+        <option>Masters</option>
+        <option>PhD</option>
+    </select>
+    <br><br>
+
+    <label>Degree Program:</label><br>
+    <input type="text" name="degree" placeholder="BS, BBA, MCS, etc"><br><br>
+
+    <label>Time Duration of Current Degree:</label><br>
+    Start Year:
+    <select name="current_degree_start">
+    <option>2020</option>
+    <option>2021</option>
+    <option>2022</option>
+    <option>2023</option>
+    <option>2024</option>
+    <option>2025</option>
+    <option>2026</option>
+    <option>2027</option>
+    <option>2028</option>
+    <option>2029</option>
+    <option>2030</option>
+</select>
+End Year:
+<select name="current_degree_end">
+    <option>2020</option>
+    <option>2021</option>
+    <option>2022</option>
+    <option>2023</option>
+    <option>2024</option>
+    <option>2025</option>
+    <option>2026</option>
+    <option>2027</option>
+    <option>2028</option>
+    <option>2029</option>
+    <option>2030</option>
+</select>
+<br><br>
+
+    <label>Last Education (Completed):</label><br>
+    <input type="text" name="lasteducation" placeholder="e.g., FSC, ICS, Matric, Bachelor"><br><br>
+
+    <label>Duration of Completion of Last Degree:</label><br>
+    <input type="text" name="last_degree_duration" placeholder="e.g., 2 Years (2021–2023)" required><br><br>
+    
+
+    <label>Year of Registration in University:</label><br>
+    <input type= "text" name="year of regestration in university placeholder="<br><br>
+    
+
+    <label> University Name:</label><br>
+    <input type="text" name="university" placeholder="e.g., University of Karachi" required><br><br>
+
+    <label>Address:</label><br>
+    <textarea name="address" rows="3"></textarea><br><br>
+
+    <button type="submit">Submit Registration</button>
+
+</form>
+
+</body>
+</html>
