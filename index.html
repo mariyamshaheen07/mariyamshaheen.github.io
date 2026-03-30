@@ -1,57 +1,239 @@
-<div class="projects-grid">
-    <!-- ZAIKA STREET -->
-    <div class="project-card">
-        <div class="card-icon">🍛</div>
-        <h3>Zaika Street</h3>
-        <p>Food & restaurant vibe website with delicious design.</p>
-        <a href="ABM ZAIKA STREET WEBSITE.html" class="btn">Visit →</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Mariyam Shaheen | Projects Hub</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e9edf2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+        }
+
+        /* main card container */
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(2px);
+            border-radius: 2.5rem;
+            box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.25), 0 4px 12px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            transition: all 0.2s ease;
+        }
+
+        /* hero section */
+        .hero {
+            background: linear-gradient(105deg, #1e2a3a 0%, #0f1724 100%);
+            padding: 3rem 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff, #c9e9ff);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.4;
+        }
+
+        .hero .tag {
+            margin-top: 1.5rem;
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(4px);
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* projects section */
+        .projects-section {
+            padding: 2.5rem 2rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            color: #0a1927;
+            border-left: 5px solid #2c7da0;
+            padding-left: 1rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.8rem;
+        }
+
+        /* project card */
+        .project-card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-icon {
+            font-size: 2.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-card h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #1e2a3a;
+        }
+
+        .project-card p {
+            color: #334155;
+            line-height: 1.4;
+            margin-bottom: 1.2rem;
+            font-size: 0.9rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: #1e2a3a;
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 2rem;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: background 0.2s, transform 0.1s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #2c3e50;
+            transform: scale(0.97);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 1.8rem;
+            background: #f0f3f8;
+            font-size: 0.8rem;
+            color: #2c3e4e;
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+
+        @media (max-width: 680px) {
+            .hero h1 { font-size: 1.9rem; }
+            .hero { padding: 2rem 1rem; }
+            .projects-section { padding: 1.8rem; }
+            .section-title { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="hero">
+        <h1>Mariyam Shaheen</h1>
+        <p>Creative front-end experiments & interactive projects<br> — built with HTML, CSS, and JavaScript.</p>
+        <div class="tag">✨ interactive ✨ responsive ✨</div>
     </div>
-    
-    <!-- DELISH RECIPES -->
-    <div class="project-card">
-        <div class="card-icon">🍰</div>
-        <h3>Delish Recipes</h3>
-        <p>Collection of tasty recipes presented in style.</p>
-        <a href="DELISH RECIPIES PRESENTATION.html" class="btn">Visit →</a>
+
+    <div class="projects-section">
+        <div class="section-title">📁 explore my work</div>
+        <div class="projects-grid">
+            <!-- ZAIKA STREET -->
+            <div class="project-card">
+                <div class="card-icon">🍛</div>
+                <h3>Zaika Street</h3>
+                <p>Food & restaurant vibe website with delicious design.</p>
+                <a href="ABM ZAIKA STREET WEBSITE.html" class="btn">Visit →</a>
+            </div>
+            
+            <!-- DELISH RECIPES -->
+            <div class="project-card">
+                <div class="card-icon">🍰</div>
+                <h3>Delish Recipes</h3>
+                <p>Collection of tasty recipes presented in style.</p>
+                <a href="DELISH RECIPIES PRESENTATION.html" class="btn">Visit →</a>
+            </div>
+            
+            <!-- DISH PREFERENCE -->
+            <div class="project-card">
+                <div class="card-icon">🍽️</div>
+                <h3>Dish Preference</h3>
+                <p>Choose your favorite dishes and explore flavors.</p>
+                <a href="dishprefrence.html" class="btn">Visit →</a>
+            </div>
+            
+            <!-- FEAST MENU -->
+            <div class="project-card">
+                <div class="card-icon">📖</div>
+                <h3>Feast Menu</h3>
+                <p>Complete menu collection for special feasts.</p>
+                <a href="feastmenu.html" class="btn">Visit →</a>
+            </div>
+            
+            <!-- FORM -->
+            <div class="project-card">
+                <div class="card-icon">📋</div>
+                <h3>Interactive Form</h3>
+                <p>User-friendly form with modern layout.</p>
+                <a href="form.html" class="btn">Visit →</a>
+            </div>
+            
+            <!-- WORKBOOK -->
+            <div class="project-card">
+                <div class="card-icon">📘</div>
+                <h3>Workbook</h3>
+                <p>Practice and experiments area.</p>
+                <a href="workbook.html" class="btn">Visit →</a>
+            </div>
+            
+            <!-- BASIC JS FILE -->
+            <div class="project-card">
+                <div class="card-icon">⚙️</div>
+                <h3>JavaScript Basics</h3>
+                <p>Interactive JS demo page.</p>
+                <a href="bacis html file using javascript.html" class="btn">Visit →</a>
+            </div>
+        </div>
     </div>
-    
-    <!-- DISH PREFERENCE (NEW) -->
-    <div class="project-card">
-        <div class="card-icon">🍽️</div>
-        <h3>Dish Preference</h3>
-        <p>Choose your favorite dishes and explore flavors.</p>
-        <a href="dishprefrence.html" class="btn">Visit →</a>
-    </div>
-    
-    <!-- FEAST MENU (NEW) -->
-    <div class="project-card">
-        <div class="card-icon">📖</div>
-        <h3>Feast Menu</h3>
-        <p>Complete menu collection for special feasts.</p>
-        <a href="feastmenu.html" class="btn">Visit →</a>
-    </div>
-    
-    <!-- FORM -->
-    <div class="project-card">
-        <div class="card-icon">📋</div>
-        <h3>Interactive Form</h3>
-        <p>User-friendly form with modern layout.</p>
-        <a href="form.html" class="btn">Visit →</a>
-    </div>
-    
-    <!-- WORKBOOK -->
-    <div class="project-card">
-        <div class="card-icon">📘</div>
-        <h3>Workbook</h3>
-        <p>Practice and experiments area.</p>
-        <a href="workbook.html" class="btn">Visit →</a>
-    </div>
-    
-    <!-- BASIC JS FILE -->
-    <div class="project-card">
-        <div class="card-icon">⚙️</div>
-        <h3>JavaScript Basics</h3>
-        <p>Interactive JS demo page.</p>
-        <a href="bacis html file using javascript.html" class="btn">Visit →</a>
+    <div class="footer">
+        <span>🚀 designed with 💙 • hosted on GitHub Pages</span>
     </div>
 </div>
+</body>
+</html>
