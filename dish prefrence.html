@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dish Selector</title>
+
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #8C5A3C; 
+;
+            color: #5E0006;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            background: #C08552;
+
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+        }
+
+        .dish-option {
+            display: flex;
+            margin: 12px 0;
+            font-size: 18px;
+        }
+
+        button {
+            margin-top: 25px;
+            padding: 12px 25px;
+            font-size: 16px;
+            border: p.solid {border-style: solid;};
+            border-radius: 25px;
+            background-color: #EED9B9;
+            color: #333;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #EED9B9;
+;
+        }
+
+        #result {
+            margin-top: 25px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Choose Your Favorite Dish</h1>
+
+    <label class="dish-option">
+        <input type="radio" name="dish" value="biryani"> Biryani
+    </label>
+
+    <label class="dish-option">
+        <input type="radio" name="dish" value="pizza"> Pizza
+    </label>
+
+    <label class="dish-option">
+        <input type="radio" name="dish" value="burger"> Burger
+    </label>
+
+    <button onclick="selectDish()">Confirm Selection</button>
+
+    <div id="result"></div>
+</div>
+
+<script>
+    function selectDish() {
+        let selectedDish = document.querySelector('input[name="dish"]:checked');
+        let result = document.getElementById('result');
+
+        if (selectedDish === null) {
+            result.textContent = "⚠ Please select a dish.";
+        }
+        else if (selectedDish.value === "biryani") {
+            result.textContent = "🍛 You chose Biryani – rich and flavorful!";
+        }
+        else if (selectedDish.value === "pizza") {
+            result.textContent = "🍕 You chose Pizza – cheesy delight!";
+        }
+        else if (selectedDish.value === "burger") {
+            result.textContent = "🍔 You chose Burger – classic favorite!";
+        }
+    }
+</script>
+
+</body>
+</html>
