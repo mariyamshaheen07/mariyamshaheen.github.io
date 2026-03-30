@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Dish Selector · Extended Menu | Borders Enhanced</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: 'Segoe UI', 'Poppins', system-ui, -apple-system, 'Roboto', sans-serif;
+            background: linear-gradient(145deg, #7a4b2c 0%, #5e2e14 100%);
+            color: #2c1810;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+        }
+
+        /* main card */
+        .container {
+            width: 100%;
+            max-width: 680px;
+            background: #fae8cf;
+            background-image: radial-gradient(circle at 10% 20%, rgba(255,245,225,0.6) 2%, transparent 2.5%);
+            background-size: 28px 28px;
+            padding: 2rem 2rem 2.5rem;
+            border-radius: 48px;
+            text-align: center;
+            box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.5), 0 4px 12px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(0px);
+            transition: transform 0.2s ease;
+            border: 1px solid rgba(255, 215, 170, 0.6);
+        }
+
+        .container:hover {
+            transform: scale(1.01);
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+            letter-spacing: -0.3px;
+            background: linear-gradient(135deg, #6b2e1a, #9b4a2a);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 2px 2px 8px rgba(255,235,200,0.6);
+        }
+
+        .subhead {
+            font-size: 0.85rem;
+            color: #7a4a2c;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px dotted #deb887;
+            display: inline-block;
+            padding-bottom: 6px;
+            font-weight: 500;
+        }
+
+        /* scrollable / grid for many options */
+        .options-grid {
+            max-height: 380px;
+            overflow-y: auto;
+            padding-right: 6px;
+            margin-bottom: 0.5rem;
+            scrollbar-width: thin;
+        }
+
+        .options-grid::-webkit-scrollbar {
+            width: 6px;
+        }
+        .options-grid::-webkit-scrollbar-track {
+            background: #eedbc4;
+            border-radius: 10px;
+        }
+        .options-grid::-webkit-scrollbar-thumb {
+            background: #b97f54;
+            border-radius: 10px;
+        }
+
+        /* dish option cards */
+        .dish-option {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: #fff7ef;
+            margin: 12px 0;
+            padding: 10px 20px;
+            border-radius: 60px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #4a2a18;
+            transition: all 0.2s;
+            cursor: pointer;
+            border: 2px solid #e7c8a3;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        }
+
+        .dish-option:hover {
+            background: #fff0e0;
+            border-color: #c28a5c;
+            transform: translateX(6px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+        }
+
+        /* custom radio style */
+        input[type="radio"] {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #b46f3a;
+            border-radius: 50%;
+            margin-right: 4px;
+            background-color: white;
+            transition: 0.1s linear;
+            cursor: pointer;
+            position: relative;
+        }
+
+        input[type="radio"]:checked {
+            background-color: #c87e4a;
+            border-color: #8b3c1c;
+            box-shadow: inset 0 0 0 4px #fff2e6;
+        }
+
+        input[type="radio"]:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px #ffbe8c;
+        }
+
+        /* ========== MAIN BUTTON — BORDER MAGIC ========== */
+        .confirm-btn {
+            margin-top: 28px;
+            padding: 14px 32px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            font-family: inherit;
+            background: #f5e2c1;
+            color: #562c16;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            letter-spacing: 0.5px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 5px 0 #b36b3c;
+            
+            /* DYNAMIC BORDER — layered warm effect */
+            border: 3px solid #b45a2e;
+            border-top-color: #e7a56e;
+            border-right-color: #9c4d24;
+            border-bottom-color: #7b3a1a;
+            border-left-color: #c57e48;
+            
+            background: linear-gradient(135deg, #ffe5ca, #fad6b3);
+        }
+
+        .confirm-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 18px rgba(100, 40, 10, 0.3), 0 3px 0 #9b4a26;
+            border: 3px solid #c2713c;
+            border-top-color: #f5bc8a;
+            border-right-color: #b45f2e;
+            border-bottom-color: #8f4520;
+            border-left-color: #db8e58;
+            background: linear-gradient(125deg, #fff0df, #ffe0c4);
+            color: #3f2010;
+        }
+
+        .confirm-btn:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            border: 3px solid #a35328;
+        }
+
+        .confirm-btn:focus-visible {
+            outline: none;
+            border: 3px solid #ff9f4a;
+            box-shadow: 0 0 0 3px rgba(220, 110, 40, 0.5);
+        }
+
+        .confirm-btn::before {
+            content: "✨";
+            font-size: 1.1rem;
+            opacity: 0.8;
+            transition: 0.2s;
+        }
+
+        .confirm-btn:hover::before {
+            content: "🍽️";
+            transform: rotate(8deg);
+        }
+
+        /* result area */
+        #result {
+            margin-top: 28px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            background: #ecd9be;
+            padding: 14px 18px;
+            border-radius: 50px;
+            display: inline-block;
+            width: auto;
+            min-width: 240px;
+            color: #4a2412;
+            border-left: 6px solid #c97c47;
+            border-right: 2px solid #e2bc8a;
+            box-shadow: inset 0 0 0 1px #fff6ea, 0 6px 12px rgba(0,0,0,0.05);
+            letter-spacing: 0.3px;
+            transition: 0.15s;
+        }
+
+        footer {
+            margin-top: 20px;
+            font-size: 0.7rem;
+            color: #a66e44;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 550px) {
+            .container {
+                padding: 1.5rem;
+            }
+            .dish-option {
+                padding: 8px 14px;
+                font-size: 0.9rem;
+            }
+            .confirm-btn {
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+            h1 {
+                font-size: 1.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🍽️ Feast Menu · Dish Selector</h1>
+    <div class="subhead">✦ traditional sweets · drinks · classics ✦</div>
+
+    <div class="options-grid">
+        <!-- original 3 dishes -->
+        <label class="dish-option">
+            <input type="radio" name="dish" value="biryani"> 
+            <span>🍛 Biryani – Aromatic & Royal</span>
+        </label>
+        <label class="dish-option">
+            <input type="radio" name="dish" value="pizza"> 
+            <span>🍕 Pizza – Melty & Irresistible</span>
+        </label>
+        <label class="dish-option">
+            <input type="radio" name="dish" value="burger"> 
+            <span>🍔 Burger – Classic & Juicy</span>
+        </label>
+
+        <!-- NEW DISHES: Halwa, Custard, and Drinks (Coke, Chai) -->
+        <label class="dish-option">
+            <input type="radio" name="dish" value="halwa"> 
+            <span>🍯 Halwa – Rich, Sweet & Nutty Delight</span>
+        </label>
+        <label class="dish-option">
+            <input type="radio" name="dish" value="custard"> 
+            <span>🍮 Custard – Creamy Velvety Dessert</span>
+        </label>
+        <label class="dish-option">
+            <input type="radio" name="dish" value="coke"> 
+            <span>🥤 Coca-Cola – Sparkling & Refreshing</span>
+        </label>
+        <label class="dish-option">
+            <input type="radio" name="dish" value="chai"> 
+            <span>☕ Chai – Spiced Milk Tea (Masala Chai)</span>
+        </label>
+    </div>
+
+    <!-- MAIN BUTTON with premium border design -->
+    <button class="confirm-btn" onclick="selectDish()">Confirm Selection</button>
+
+    <div id="result">✨ waiting for your choice... ✨</div>
+    <footer>✧ border magic • 7 delicious options ✧</footer>
+</div>
+
+<script>
+    function selectDish() {
+        let selectedDish = document.querySelector('input[name="dish"]:checked');
+        let resultDiv = document.getElementById('result');
+        
+        // Handle empty selection
+        if (selectedDish === null) {
+            resultDiv.innerHTML = "⚠ Please select a dish or drink — deliciousness awaits!";
+            resultDiv.style.borderLeftColor = "#e09d6e";
+            resultDiv.style.backgroundColor = "#f7e4cf";
+            resultDiv.style.transform = "scale(1.01)";
+            setTimeout(() => { resultDiv.style.transform = ""; }, 200);
+            return;
+        }
+        
+        // Custom messages for all 7 items (original 3 + halwa, custard, coke, chai)
+        let dishValue = selectedDish.value;
+        let message = "";
+        let borderAccent = "#c97c47";
+        let bgHighlight = "#faeedb";
+        
+        switch(dishValue) {
+            case "biryani":
+                message = "🍛 You chose Biryani – rich, spiced, and unforgettable! (fragrant rice & tender meat)";
+                borderAccent = "#e67e22";
+                bgHighlight = "#faeedb";
+                break;
+            case "pizza":
+                message = "🍕 You chose Pizza – cheesy, saucy perfection with a crispy crust! 🧀";
+                borderAccent = "#d35400";
+                bgHighlight = "#fef0e0";
+                break;
+            case "burger":
+                message = "🍔 You chose Burger – classic favorite with juicy patty and fresh toppings! 🥗";
+                borderAccent = "#b85c1a";
+                bgHighlight = "#f8e5cf";
+                break;
+            case "halwa":
+                message = "🍯 You chose Halwa – aromatic semolina dessert with ghee, nuts & cardamom! (pure comfort)";
+                borderAccent = "#d99938";
+                bgHighlight = "#fff0e2";
+                break;
+            case "custard":
+                message = "🍮 You chose Custard – silky smooth, vanilla-kissed custard, perfect with fruits!";
+                borderAccent = "#cb7b3c";
+                bgHighlight = "#fef3e6";
+                break;
+            case "coke":
+                message = "🥤 You chose Coca-Cola – ice-cold, fizzy refreshment to complete your meal!";
+                borderAccent = "#b0451c";
+                bgHighlight = "#f9e8db";
+                break;
+            case "chai":
+                message = "☕ You chose Chai – spiced masala tea, ginger & cardamom, absolute soul-warmer!";
+                borderAccent = "#aa6f42";
+                bgHighlight = "#fcecdb";
+                break;
+            default:
+                message = "✨ Delicious choice! Enjoy your meal.";
+                borderAccent = "#c97c47";
+        }
+        
+        // Apply message and styling
+        resultDiv.innerHTML = message;
+        resultDiv.style.borderLeftColor = borderAccent;
+        resultDiv.style.backgroundColor = bgHighlight;
+        
+        // subtle bounce for result
+        resultDiv.style.transform = "scale(1.02)";
+        setTimeout(() => { resultDiv.style.transform = ""; }, 220);
+        
+        // bonus: flash border on the selected radio's label for visual feedback
+        let parentLabel = selectedDish.closest('.dish-option');
+        if(parentLabel) {
+            parentLabel.style.border = "2px solid #e09358";
+            parentLabel.style.boxShadow = "0 0 0 2px #ffdbb5";
+            setTimeout(() => {
+                if(parentLabel) {
+                    parentLabel.style.border = "2px solid #e7c8a3";
+                    parentLabel.style.boxShadow = "0 2px 5px rgba(0,0,0,0.03)";
+                }
+            }, 400);
+        }
+        
+        // Enhance button border animation (dynamic feedback)
+        let btn = document.querySelector('.confirm-btn');
+        if(btn) {
+            btn.style.transition = "border 0.1s ease";
+            btn.style.borderColor = "#ffa559";
+            btn.style.borderTopColor = "#ffcc88";
+            setTimeout(() => {
+                if(btn) {
+                    btn.style.borderColor = "#b45a2e";
+                    btn.style.borderTopColor = "#e7a56e";
+                    btn.style.borderRightColor = "#9c4d24";
+                    btn.style.borderBottomColor = "#7b3a1a";
+                    btn.style.borderLeftColor = "#c57e48";
+                }
+            }, 200);
+        }
+    }
+    
+    // Keyboard support: press "Enter" anywhere in container to confirm selection
+    document.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            const activeEl = document.activeElement;
+            if (activeEl && (activeEl.type === "radio" || activeEl.classList?.contains('confirm-btn'))) {
+                event.preventDefault();
+                selectDish();
+            } else {
+                // also convenient: trigger selection even if focus is elsewhere
+                selectDish();
+            }
+        }
+    });
+    
+    // additional visual flair: small border animation on container load
+    window.addEventListener('load', () => {
+        const container = document.querySelector('.container');
+        if(container) {
+            container.style.transition = "border 0.2s";
+            container.style.border = "2px solid #f5cba0";
+            setTimeout(() => {
+                container.style.border = "1px solid rgba(255, 215, 170, 0.6)";
+            }, 500);
+        }
+    });
+</script>
+
+</body>
+</html>
